@@ -36,7 +36,8 @@ Install and import all required libraries.
 
     Collecting fasttext
       Downloading fasttext-0.9.3.tar.gz (73 kB)
-    [?25l     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/73.4 kB[0m [31m?[0m eta [36m-:--:--[0m[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m73.4/73.4 kB[0m [31m1.9 MB/s[0m eta [36m0:00:00[0m
+    [?25l     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/73.4 kB[0m [31m?[0m eta [36m-:--:--[0m
+[2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m73.4/73.4 kB[0m [31m1.9 MB/s[0m eta [36m0:00:00[0m
     [?25h  Installing build dependencies ... [?25l[?25hdone
       Getting requirements to build wheel ... [?25l[?25hdone
       Preparing metadata (pyproject.toml) ... [?25l[?25hdone
@@ -149,7 +150,7 @@ print(" libraries imported successfully!")
 
 # __1.  Bag-of-Words (BoW)__
 
-###__Concept:__<br>
+### __Concept:__<br>
 Bag-of-Words (BoW) represents each text as a vector of word counts, ignoring word order. It is simple, fast, and often effective for basic text classification tasks.
 
 __Limitation:__<br>
@@ -181,7 +182,7 @@ print("BoW Matrix:\n", bow_matrix.toarray())
      [1 1 0 1 0 0 2]]
     
 
-###__Experimentation__: Using bigrams to capture word order:
+### __Experimentation__: Using bigrams to capture word order:
 
 
 ```python
@@ -201,13 +202,13 @@ print("BoW matrix with bigrams:\n", bow_matrix_bigram.toarray())
      [1 1 1 0 0 0 0 1 1 0 0 2 1 1]]
     
 
-####__Observation:__
+#### __Observation:__
 
 * Including bigrams like __"the dog"__ and __"the man"__ allows the model to partially capture word order.
 
 * Now __"The dog bit the man"__ and __"The man bit the dog"__ have different vectors thus reducing ambiguity.
 
-##__Visualizing the BoW matrix:__
+## __Visualizing the BoW matrix:__
 
 
 ```python
@@ -380,7 +381,7 @@ print("🎯 FastText understands morphology: 'play' and 'playing' are very simil
     🎯 FastText understands morphology: 'play' and 'playing' are very similar!
     
 
-###__Semantic similarity examples:__
+### __Semantic similarity examples:__
 
 __'play' vs 'playing'__: 0.7612 <br>
 __'car' vs 'automobile'__: 0.7022 <br>
@@ -425,7 +426,7 @@ print(f"'suuuuper' (typo) vs 'super': {get_similarity('suuuuper', 'super'):.4f}"
     'suuuuper' (typo) vs 'super': 0.7021
     
 
-###__Observation:__
+### __Observation:__
 
 Despite spelling errors, similarity scores remain relatively high.
 
@@ -526,7 +527,7 @@ print("If our model gets 87% accuracy, that's barely better than always guessing
     If our model gets 87% accuracy, that's barely better than always guessing 'ham'.
     
 
-##Exploration question :
+## Exploration question :
 
 __3.Baseline accuracy:__ Why is it important to calculate this BEFORE building models? <br>
 
@@ -599,7 +600,7 @@ print(f"First 10 dimensions: {test_vector[:10]}")
      -0.09545817 -0.04873976 -0.07071517 -0.02255991]
     
 
-##Exploration question :
+## Exploration question :
 __4.Text cleaning:__ we remove the stopword filtering
 
 
@@ -734,7 +735,7 @@ print("\n✓ Vectorization complete!")
     
     
 
-###__Comparing vectors (without stopwords filtering vs with):__
+### __Comparing vectors (without stopwords filtering vs with):__
 
 
 ```python
@@ -825,7 +826,7 @@ print("\n✓ Dimensionality reduction complete!")
 
 ### Create Scatter Plot
 
-###__identifying overlapping zones between ham and spam :__
+### __identifying overlapping zones between ham and spam :__
 
 
 ```python
@@ -900,9 +901,9 @@ plt.show()
     
 
 
-##Exploration question:
+## Exploration question:
 
-###__2.Examining visualisation:__
+### __2.Examining visualisation:__
 
 In the visualization we can clearly observe regions where spam and ham messages overlap forming areas close to the decision boundary. These ambiguous messages often contain short, generic text that lacks strong indicators of either category. <br>For example, messages like:
 
@@ -1016,8 +1017,9 @@ plt.show()
 
 ## Exploration question :
 
-###__5.Class imbalance__:  when is it appropriate ?
+### __5.Class imbalance__:  when is it appropriate ?
 
 Class imbalance can reflect the true distribution of the data and is sometimes appropriate. For example, in fraud detection, most transactions are legitimate and only a few are fraudulent. Similarly, for rare diseases, the majority of patients are healthy. In these cases, forcing balanced classes could create unrealistic scenarios and reduce the model’s relevance. It is better to use evaluation metrics such as F1-score or AUC that account for imbalance rather than
 relying only on accuracy.
+
 
